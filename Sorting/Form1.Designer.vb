@@ -38,6 +38,7 @@ Partial Class frmMain
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lblAlgo = New System.Windows.Forms.Label()
         Me.pnlInputsBottom = New System.Windows.Forms.Panel()
+        Me.chkWords = New System.Windows.Forms.CheckBox()
         Me.grpUnsorted.SuspendLayout()
         Me.grpSorted.SuspendLayout()
         Me.pnlTexts.SuspendLayout()
@@ -49,6 +50,7 @@ Partial Class frmMain
         'txtUnsorted
         '
         Me.txtUnsorted.Location = New System.Drawing.Point(6, 19)
+        Me.txtUnsorted.MaxLength = 5000000
         Me.txtUnsorted.Multiline = True
         Me.txtUnsorted.Name = "txtUnsorted"
         Me.txtUnsorted.Size = New System.Drawing.Size(745, 266)
@@ -77,6 +79,7 @@ Partial Class frmMain
         'txtSorted
         '
         Me.txtSorted.Location = New System.Drawing.Point(6, 19)
+        Me.txtSorted.MaxLength = 5000000
         Me.txtSorted.Multiline = True
         Me.txtSorted.Name = "txtSorted"
         Me.txtSorted.ReadOnly = True
@@ -123,7 +126,7 @@ Partial Class frmMain
         'cmbAlgorithm
         '
         Me.cmbAlgorithm.FormattingEnabled = True
-        Me.cmbAlgorithm.Items.AddRange(New Object() {"Bubblesort", "Insertionsort", "Quicksort", "Mergesort"})
+        Me.cmbAlgorithm.Items.AddRange(New Object() {"Bubblesort", "Insertionsort", "Quicksort", "Ripplesort", "Mergesort"})
         Me.cmbAlgorithm.Location = New System.Drawing.Point(62, 3)
         Me.cmbAlgorithm.Name = "cmbAlgorithm"
         Me.cmbAlgorithm.Size = New System.Drawing.Size(140, 21)
@@ -157,6 +160,7 @@ Partial Class frmMain
         '
         'pnlInputsTop
         '
+        Me.pnlInputsTop.Controls.Add(Me.chkWords)
         Me.pnlInputsTop.Controls.Add(Me.Panel2)
         Me.pnlInputsTop.Controls.Add(Me.btnSort)
         Me.pnlInputsTop.Location = New System.Drawing.Point(12, 12)
@@ -193,6 +197,16 @@ Partial Class frmMain
         Me.pnlInputsBottom.Size = New System.Drawing.Size(770, 28)
         Me.pnlInputsBottom.TabIndex = 11
         '
+        'chkWords
+        '
+        Me.chkWords.AutoSize = True
+        Me.chkWords.Location = New System.Drawing.Point(342, 6)
+        Me.chkWords.Name = "chkWords"
+        Me.chkWords.Size = New System.Drawing.Size(57, 17)
+        Me.chkWords.TabIndex = 13
+        Me.chkWords.Text = "Words"
+        Me.chkWords.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -210,6 +224,7 @@ Partial Class frmMain
         Me.grpSorted.PerformLayout()
         Me.pnlTexts.ResumeLayout(False)
         Me.pnlInputsTop.ResumeLayout(False)
+        Me.pnlInputsTop.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.pnlInputsBottom.ResumeLayout(False)
@@ -233,5 +248,6 @@ Partial Class frmMain
     Friend WithEvents pnlInputsBottom As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents lblAlgo As System.Windows.Forms.Label
+    Friend WithEvents chkWords As System.Windows.Forms.CheckBox
 
 End Class
