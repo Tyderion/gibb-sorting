@@ -1,8 +1,7 @@
-﻿Public Class StringList
+﻿Public Class ListWithSorting 'Rename??
     Inherits ArrayList
-    Private blnUseWords As Boolean
-    Private objects() As Object
-
+    Private blnUseWords As Boolean '
+    Private objects() As Object ' The objects to be sorted
     Private blnAlive As Boolean = True ' This needs to be here, it doesn't work when saved in the form. Makes Functions abort when false
 
     Public Sub kill()
@@ -52,7 +51,7 @@
         Do
             Dim intMax As Integer = intLeft
             For i = intLeft + 1 To intLength - 1
-                If objects(i) < objects(intMax) Then
+                If StrComp(objects(i), objects(intMax), frmMain.optionCompare()) = -1 Then
                     intMax = i
                 End If
                 If Not blnAlive Then ' Make it correctly quit when quitting :)
@@ -72,7 +71,7 @@
         Do
             swapped = False
             For i = 0 To length - 2
-                If objects(i) > objects(i + 1) Then
+                If StrComp(objects(i), objects(i + 1), frmMain.optionCompare()) = 1 Then
                     SwapValues(Of Object)(i, i + 1)
                     swapped = True
                 End If
@@ -91,7 +90,7 @@
         Do
             swapped = False
             For i = 0 To length - 2
-                If objects(i) > objects(i + 1) Then
+                If StrComp(objects(i), objects(i + 1), frmMain.optionCompare()) = 1 Then
                     SwapValues(Of Object)(i, i + 1)
                     swapped = True
                 End If
@@ -112,10 +111,10 @@
         Dim j = intRight
         Dim x As Object = objects((intLeft + intRight) \ 2)
         While i <= j
-            While objects(i) < x
+            While StrComp(objects(i), x, frmMain.optionCompare()) = -1
                 i += 1
             End While
-            While x < objects(j)
+            While StrComp(x, objects(j), frmMain.optionCompare()) = -1
                 j -= 1
             End While
             If i <= j Then
