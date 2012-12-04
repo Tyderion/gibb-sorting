@@ -3,8 +3,15 @@
 
     Public alive As Boolean = True
 
+    Private udtList As StringList
+
+    'Public Function alive() As Boolean
+    '    Return mblnalive
+    'End Function
+
     Private Sub btnQuit_Click(sender As Object, e As EventArgs) Handles btnQuit.Click
-        alive = False
+        'Console.Write(CStr(alive) & " and the function: " & alive())
+        udtList.kill()
         Me.Close()
     End Sub
 
@@ -22,7 +29,7 @@
         txtSorted.Text = ""
         Me.Cursor = Cursors.WaitCursor
         Dim strText = txtUnsorted.Text.ToCharArray()
-        Dim udtList As StringList
+        'Dim udtList As StringList
         If chkWords.CheckState = 1 Then
             udtList = New StringList(txtUnsorted.Text, True)
         Else
