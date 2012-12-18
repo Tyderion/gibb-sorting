@@ -1,4 +1,5 @@
-﻿Public Class frmMain
+﻿
+Public Class frmMain
 
 
     Public alive As Boolean = True
@@ -85,6 +86,7 @@
     End Sub
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        SortierenToolStripMenuItem.ShortcutKeys = Keys.Control Or Keys.Enter
         chkWords.Checked = blnSortWords
         WorteToolStripMenuItem.Checked = blnSortWords
         chkUmlaute.Checked = blnSpecialUmlaute
@@ -116,11 +118,9 @@
 
     Private Sub setAlgorithm(ByVal strAlgo As String)
         cmbAlgorithm.SelectedItem = strAlgo
-        BubblesortToolStripMenuItem.Checked = False
-        RipplesortToolStripMenuItem.Checked = False
-        QuicksortToolStripMenuItem.Checked = False
-        InsertionsortToolStripMenuItem.Checked = False
-        MergesortToolStripMenuItem.Checked = False
+        For Each s As ToolStripMenuItem In AlgorithmusToolStripMenuItem.DropDownItems
+            s.Checked = False
+        Next
         Select Case strAlgo
             Case "Bubblesort"
                 BubblesortToolStripMenuItem.Checked = True
@@ -139,13 +139,34 @@
         setAlgorithm(cmbAlgorithm.SelectedItem)
     End Sub
 
-    Private Sub Menu_Algorithm_Click(sender As Object, e As EventArgs) Handles BubblesortToolStripMenuItem.Click
-        For Each s As ToolStripMenuItem In AlgorithmusToolStripMenuItem.DropDownItems
-            s.Checked = True
-        Next
+    Private Sub Menu_Algorithm_Click(sender As Object, e As EventArgs) Handles BubblesortToolStripMenuItem.Click, AlgorithmusToolStripMenuItem.Click, InsertionsortToolStripMenuItem.Click, QuicksortToolStripMenuItem.Click, RipplesortToolStripMenuItem.Click, MergesortToolStripMenuItem.Click
+        Dim item As ToolStripMenuItem = sender
+        setAlgorithm(item.Text)
+
     End Sub
 
-    Private Sub AlgorithmusToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AlgorithmusToolStripMenuItem.Click
+    Private Sub ÖffnenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ÖffnenToolStripMenuItem.Click
+        ofdLoadText.ShowDialog()
+
+    End Sub
+
+    Private Sub OpenFileDialog1_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ofdLoadText.FileOk
+        Try
+            Using sr As New IO.StreamReader(ofdLoadText.FileName)
+                txtUnsorted.Text = sr.ReadToEnd()
+            End Using
+        Catch
+            txtUnsorted.Text = "Could not read the file"
+        End Try
+
+
+    End Sub
+
+    Private Sub SortierenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SortierenToolStripMenuItem.Click
+        btnSort_Click(sender, e)
+    End Sub
+
+    Private Sub AusschneidenToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
     End Sub
 End Class

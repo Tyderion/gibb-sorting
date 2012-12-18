@@ -48,10 +48,6 @@ Partial Class frmMain
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BeendenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BearbeitenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AusschneidenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.KopierenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EinfügenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.SortierenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UmlauteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -63,6 +59,7 @@ Partial Class frmMain
         Me.RipplesortToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MergesortToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InfosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ofdLoadText = New System.Windows.Forms.OpenFileDialog()
         Me.grpUnsorted.SuspendLayout()
         Me.grpSorted.SuspendLayout()
         Me.pnlTexts.SuspendLayout()
@@ -248,7 +245,7 @@ Partial Class frmMain
         Me.mnuMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DateiToolStripMenuItem, Me.BearbeitenToolStripMenuItem, Me.OptionenToolStripMenuItem, Me.InfosToolStripMenuItem})
         Me.mnuMain.Location = New System.Drawing.Point(0, 0)
         Me.mnuMain.Name = "mnuMain"
-        Me.mnuMain.Size = New System.Drawing.Size(1310, 24)
+        Me.mnuMain.Size = New System.Drawing.Size(799, 24)
         Me.mnuMain.TabIndex = 12
         Me.mnuMain.Text = "MenuStrip1"
         '
@@ -262,66 +259,47 @@ Partial Class frmMain
         'NeuToolStripMenuItem
         '
         Me.NeuToolStripMenuItem.Name = "NeuToolStripMenuItem"
-        Me.NeuToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.NeuToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
+        Me.NeuToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.NeuToolStripMenuItem.Text = "Neu"
         '
         'ÖffnenToolStripMenuItem
         '
         Me.ÖffnenToolStripMenuItem.Name = "ÖffnenToolStripMenuItem"
-        Me.ÖffnenToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.ÖffnenToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
+        Me.ÖffnenToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.ÖffnenToolStripMenuItem.Text = "Öffnen"
         '
         'SpeichernToolStripMenuItem
         '
         Me.SpeichernToolStripMenuItem.Name = "SpeichernToolStripMenuItem"
-        Me.SpeichernToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.SpeichernToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.SpeichernToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.SpeichernToolStripMenuItem.Text = "Speichern"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(123, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
         '
         'BeendenToolStripMenuItem
         '
         Me.BeendenToolStripMenuItem.Name = "BeendenToolStripMenuItem"
-        Me.BeendenToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.BeendenToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Q), System.Windows.Forms.Keys)
+        Me.BeendenToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.BeendenToolStripMenuItem.Text = "Beenden"
         '
         'BearbeitenToolStripMenuItem
         '
-        Me.BearbeitenToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AusschneidenToolStripMenuItem, Me.KopierenToolStripMenuItem, Me.EinfügenToolStripMenuItem, Me.ToolStripSeparator2, Me.SortierenToolStripMenuItem})
+        Me.BearbeitenToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SortierenToolStripMenuItem})
         Me.BearbeitenToolStripMenuItem.Name = "BearbeitenToolStripMenuItem"
         Me.BearbeitenToolStripMenuItem.Size = New System.Drawing.Size(75, 20)
         Me.BearbeitenToolStripMenuItem.Text = "Bearbeiten"
         '
-        'AusschneidenToolStripMenuItem
-        '
-        Me.AusschneidenToolStripMenuItem.Name = "AusschneidenToolStripMenuItem"
-        Me.AusschneidenToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.AusschneidenToolStripMenuItem.Text = "Ausschneiden"
-        '
-        'KopierenToolStripMenuItem
-        '
-        Me.KopierenToolStripMenuItem.Name = "KopierenToolStripMenuItem"
-        Me.KopierenToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.KopierenToolStripMenuItem.Text = "Kopieren"
-        '
-        'EinfügenToolStripMenuItem
-        '
-        Me.EinfügenToolStripMenuItem.Name = "EinfügenToolStripMenuItem"
-        Me.EinfügenToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.EinfügenToolStripMenuItem.Text = "Einfügen"
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(145, 6)
-        '
         'SortierenToolStripMenuItem
         '
         Me.SortierenToolStripMenuItem.Name = "SortierenToolStripMenuItem"
-        Me.SortierenToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.SortierenToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
         Me.SortierenToolStripMenuItem.Text = "Sortieren"
         '
         'OptionenToolStripMenuItem
@@ -386,11 +364,15 @@ Partial Class frmMain
         Me.InfosToolStripMenuItem.Size = New System.Drawing.Size(45, 20)
         Me.InfosToolStripMenuItem.Text = "Infos"
         '
+        'ofdLoadText
+        '
+        Me.ofdLoadText.FileName = "Select File"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1310, 824)
+        Me.ClientSize = New System.Drawing.Size(799, 724)
         Me.Controls.Add(Me.pnlInputsBottom)
         Me.Controls.Add(Me.pnlInputsTop)
         Me.Controls.Add(Me.pnlTexts)
@@ -441,10 +423,6 @@ Partial Class frmMain
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents BeendenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BearbeitenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AusschneidenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents KopierenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents EinfügenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents SortierenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OptionenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UmlauteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -457,5 +435,6 @@ Partial Class frmMain
     Friend WithEvents InsertionsortToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MergesortToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RipplesortToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ofdLoadText As System.Windows.Forms.OpenFileDialog
 
 End Class
