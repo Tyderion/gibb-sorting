@@ -169,4 +169,8 @@ Public Class frmMain
     Private Sub AusschneidenToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
     End Sub
+
+    Private Sub SpeichernToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SpeichernToolStripMenuItem.Click
+
+    End Sub
 End Class

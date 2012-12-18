@@ -60,6 +60,7 @@ Partial Class frmMain
         Me.MergesortToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InfosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ofdLoadText = New System.Windows.Forms.OpenFileDialog()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.grpUnsorted.SuspendLayout()
         Me.grpSorted.SuspendLayout()
         Me.pnlTexts.SuspendLayout()
@@ -253,6 +254,7 @@ Partial Class frmMain
         '
         Me.DateiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NeuToolStripMenuItem, Me.ÖffnenToolStripMenuItem, Me.SpeichernToolStripMenuItem, Me.ToolStripSeparator1, Me.BeendenToolStripMenuItem})
         Me.DateiToolStripMenuItem.Name = "DateiToolStripMenuItem"
+        Me.DateiToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.W), System.Windows.Forms.Keys)
         Me.DateiToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
         Me.DateiToolStripMenuItem.Text = "Datei"
         '
@@ -280,12 +282,12 @@ Partial Class frmMain
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(163, 6)
         '
         'BeendenToolStripMenuItem
         '
         Me.BeendenToolStripMenuItem.Name = "BeendenToolStripMenuItem"
-        Me.BeendenToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Q), System.Windows.Forms.Keys)
+        Me.BeendenToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.W), System.Windows.Forms.Keys)
         Me.BeendenToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.BeendenToolStripMenuItem.Text = "Beenden"
         '
@@ -299,7 +301,7 @@ Partial Class frmMain
         'SortierenToolStripMenuItem
         '
         Me.SortierenToolStripMenuItem.Name = "SortierenToolStripMenuItem"
-        Me.SortierenToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
+        Me.SortierenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SortierenToolStripMenuItem.Text = "Sortieren"
         '
         'OptionenToolStripMenuItem
@@ -331,31 +333,31 @@ Partial Class frmMain
         'BubblesortToolStripMenuItem
         '
         Me.BubblesortToolStripMenuItem.Name = "BubblesortToolStripMenuItem"
-        Me.BubblesortToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BubblesortToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.BubblesortToolStripMenuItem.Text = "Bubblesort"
         '
         'InsertionsortToolStripMenuItem
         '
         Me.InsertionsortToolStripMenuItem.Name = "InsertionsortToolStripMenuItem"
-        Me.InsertionsortToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.InsertionsortToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.InsertionsortToolStripMenuItem.Text = "Insertionsort"
         '
         'QuicksortToolStripMenuItem
         '
         Me.QuicksortToolStripMenuItem.Name = "QuicksortToolStripMenuItem"
-        Me.QuicksortToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.QuicksortToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.QuicksortToolStripMenuItem.Text = "Quicksort"
         '
         'RipplesortToolStripMenuItem
         '
         Me.RipplesortToolStripMenuItem.Name = "RipplesortToolStripMenuItem"
-        Me.RipplesortToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RipplesortToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.RipplesortToolStripMenuItem.Text = "Ripplesort"
         '
         'MergesortToolStripMenuItem
         '
         Me.MergesortToolStripMenuItem.Name = "MergesortToolStripMenuItem"
-        Me.MergesortToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.MergesortToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.MergesortToolStripMenuItem.Text = "Mergesort"
         '
         'InfosToolStripMenuItem
@@ -436,5 +438,6 @@ Partial Class frmMain
     Friend WithEvents MergesortToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RipplesortToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ofdLoadText As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
 
 End Class
