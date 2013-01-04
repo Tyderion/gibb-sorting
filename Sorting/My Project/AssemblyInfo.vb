@@ -1,4 +1,6 @@
-﻿Imports System
+﻿Imports System.Resources
+
+Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
@@ -9,13 +11,13 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("Sorting")> 
-<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyDescription("Sortiert Text nach Zeichen oder Wörtern. Umlaute können wahlweise als deren normale Entsprechung einsortiert werde (ö = o etc).")> 
 <Assembly: AssemblyCompany("")> 
 <Assembly: AssemblyProduct("Sorting")> 
 <Assembly: AssemblyCopyright("Copyright ©  2012")> 
 <Assembly: AssemblyTrademark("")> 
 
-<Assembly: ComVisible(False)>
+<Assembly: ComVisible(False)> 
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
 <Assembly: Guid("ad993dcb-935f-4f69-88ea-929c57a3c283")> 
@@ -33,3 +35,5 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyVersion("1.0.0.0")> 
 <Assembly: AssemblyFileVersion("1.0.0.0")> 
+
+<Assembly: NeutralResourcesLanguageAttribute("de-CH")> 

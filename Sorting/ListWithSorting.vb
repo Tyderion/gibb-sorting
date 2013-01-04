@@ -9,6 +9,10 @@
         blnAlive = False
     End Sub
 
+    Public Function Length() As Integer
+        Return alstList.ToArray.Length
+    End Function
+
     Public Sub New(ByVal strText As String, Optional ByVal blnWords As Boolean = False)
         Me.blnUseWords = blnWords
         alstList = New ArrayList
@@ -196,6 +200,14 @@
             Next
         End If
         Return strWord
+    End Function
+
+    Private Function optionCompare() As CompareMethod
+        If frmMain.optionCompare() Then
+            Return CompareMethod.Text
+        Else
+            Return CompareMethod.Binary
+        End If
     End Function
 
 End Class
