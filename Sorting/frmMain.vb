@@ -5,9 +5,11 @@ Public Class frmMain
     Public alive As Boolean = True
 
     Private blnSortWords As Boolean = False
-    Private blnSpecialUmlaute As Boolean = False
+    Private blnCompareText As Boolean = False
+    Private blnUmlaute As Boolean = False
 
-    Private udtList As ListWithSorting = New ListWithSorting("")
+
+    Private udtList As StringSorting = New StringSorting("")
 
     'Public Function alive() As Boolean
     '    Return mblnalive
@@ -34,9 +36,9 @@ Public Class frmMain
         Dim strText = txtUnsorted.Text.ToCharArray()
         'Dim udtList As StringList
         If chkWords.CheckState = 1 Then
-            udtList = New ListWithSorting(txtUnsorted.Text, True)
+            udtList = New StringSorting(txtUnsorted.Text, True)
         Else
-            udtList = New ListWithSorting(txtUnsorted.Text)
+            udtList = New StringSorting(txtUnsorted.Text)
         End If
         Dim startTime As DateTime = Now
         Select Case cmbAlgorithm.SelectedItem
@@ -61,23 +63,23 @@ Public Class frmMain
     End Sub
 
 
-    Private Sub BeendenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BeendenToolStripMenuItem.Click
+    Private Sub BeendenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuExit.Click
         btnQuit_Click(sender, e)
     End Sub
 
-    Private Sub NeuToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NeuToolStripMenuItem.Click
+    Private Sub NeuToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuNew.Click
         udtList.kill()
         txtSorted.Text = ""
         txtUnsorted.Text = ""
     End Sub
 
-    Private Sub WorteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles WorteToolStripMenuItem.Click
+    Private Sub WorteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuWorte.Click
         swapWordsCheckboxes()
     End Sub
 
     Private Sub swapWordsCheckboxes()
         blnSortWords = Not blnSortWords
-        WorteToolStripMenuItem.Checked = blnSortWords
+        mnuWorte.Checked = blnSortWords
         chkWords.Checked = blnSortWords
     End Sub
 
@@ -88,50 +90,60 @@ Public Class frmMain
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SortierenToolStripMenuItem.ShortcutKeys = Keys.Control Or Keys.Enter
         chkWords.Checked = blnSortWords
-        WorteToolStripMenuItem.Checked = blnSortWords
-        chkUmlaute.Checked = blnSpecialUmlaute
+        mnuWorte.Checked = blnSortWords
+        chkCompareText.Checked = blnCompareText
 
     End Sub
 
 
 
     Public Function optionCompare() As CompareMethod
-        If blnSpecialUmlaute Then
+        If blnCompareText Then
             Return CompareMethod.Text
         Else
             Return CompareMethod.Binary
         End If
     End Function
+
+
+    Public Function maskUmlaute() As Boolean
+        Return blnUmlaute
+    End Function
+    Private Sub swapCompareTextDisplay()
+        blnCompareText = Not blnCompareText
+        mnuCompareText.Checked = blnCompareText
+        chkCompareText.Checked = blnCompareText
+    End Sub
     Private Sub swapUmlautDisplay()
-        blnSpecialUmlaute = Not blnSpecialUmlaute
-        UmlauteToolStripMenuItem.Checked = blnSpecialUmlaute
-        chkUmlaute.Checked = blnSpecialUmlaute
-
+        blnUmlaute = Not blnUmlaute
+        mnuUmlaute.Checked = blnUmlaute
+        chkUmlaute.Checked = blnUmlaute
     End Sub
 
-    Private Sub UmlauteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UmlauteToolStripMenuItem.Click
-        swapUmlautDisplay()
+    Private Sub chkUmlaute_Click(sender As Object, e As EventArgs) Handles chkCompareText.Click, mnuCompareText.Click
+        swapCompareTextDisplay()
     End Sub
-    Private Sub chkUmlaute_Click(sender As Object, e As EventArgs) Handles chkUmlaute.Click
+
+    Private Sub mnuUmlaute_Click(sender As Object, e As EventArgs) Handles mnuUmlaute.Click, chkUmlaute.Click
         swapUmlautDisplay()
     End Sub
 
     Private Sub setAlgorithm(ByVal strAlgo As String)
         cmbAlgorithm.SelectedItem = strAlgo
-        For Each s As ToolStripMenuItem In AlgorithmusToolStripMenuItem.DropDownItems
+        For Each s As ToolStripMenuItem In mnuAlgorithmus.DropDownItems
             s.Checked = False
         Next
         Select Case strAlgo
             Case "Bubblesort"
-                BubblesortToolStripMenuItem.Checked = True
+                mnuBubblesort.Checked = True
             Case "Ripplesort"
-                RipplesortToolStripMenuItem.Checked = True
+                mnuRipplesort.Checked = True
             Case "Quicksort"
-                QuicksortToolStripMenuItem.Checked = True
+                mnuQuicksort.Checked = True
             Case "Insertionsort"
-                InsertionsortToolStripMenuItem.Checked = True
+                mnuInsertionsort.Checked = True
             Case "Mergesort"
-                MergesortToolStripMenuItem.Checked = True
+                mnuMergesort.Checked = True
         End Select
     End Sub
 
@@ -139,13 +151,13 @@ Public Class frmMain
         setAlgorithm(cmbAlgorithm.SelectedItem)
     End Sub
 
-    Private Sub Menu_Algorithm_Click(sender As Object, e As EventArgs) Handles BubblesortToolStripMenuItem.Click, AlgorithmusToolStripMenuItem.Click, InsertionsortToolStripMenuItem.Click, QuicksortToolStripMenuItem.Click, RipplesortToolStripMenuItem.Click, MergesortToolStripMenuItem.Click
+    Private Sub Menu_Algorithm_Click(sender As Object, e As EventArgs) Handles mnuBubblesort.Click, mnuAlgorithmus.Click, mnuInsertionsort.Click, mnuQuicksort.Click, mnuRipplesort.Click, mnuMergesort.Click
         Dim item As ToolStripMenuItem = sender
         setAlgorithm(item.Text)
 
     End Sub
 
-    Private Sub ÖffnenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ÖffnenToolStripMenuItem.Click
+    Private Sub ÖffnenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mnuOpen.Click
         ofdLoadText.ShowDialog()
 
     End Sub
@@ -166,11 +178,5 @@ Public Class frmMain
         btnSort_Click(sender, e)
     End Sub
 
-    Private Sub AusschneidenToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
-    End Sub
-
-    Private Sub SpeichernToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SpeichernToolStripMenuItem.Click
-
-    End Sub
 End Class

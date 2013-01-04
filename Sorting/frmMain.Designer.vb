@@ -36,31 +36,37 @@ Partial Class frmMain
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pnlInputsTop = New System.Windows.Forms.Panel()
         Me.chkUmlaute = New System.Windows.Forms.CheckBox()
+        Me.chkCompareText = New System.Windows.Forms.CheckBox()
         Me.chkWords = New System.Windows.Forms.CheckBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lblAlgo = New System.Windows.Forms.Label()
         Me.pnlInputsBottom = New System.Windows.Forms.Panel()
         Me.mnuMain = New System.Windows.Forms.MenuStrip()
-        Me.DateiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NeuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ÖffnenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SpeichernToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BeendenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BearbeitenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuFile = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuNew = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuOpen = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuSave = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuExit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.SortierenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OptionenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UmlauteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.WorteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AlgorithmusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BubblesortToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.InsertionsortToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.QuicksortToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RipplesortToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MergesortToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.InfosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuCut = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuCopy = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuInsert = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuOptions = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuCompareText = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuWorte = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuAlgorithmus = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuBubblesort = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuInsertionsort = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuQuicksort = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuRipplesort = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuMergesort = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuInfo = New System.Windows.Forms.ToolStripMenuItem()
         Me.ofdLoadText = New System.Windows.Forms.OpenFileDialog()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.mnuUmlaute = New System.Windows.Forms.ToolStripMenuItem()
         Me.grpUnsorted.SuspendLayout()
         Me.grpSorted.SuspendLayout()
         Me.pnlTexts.SuspendLayout()
@@ -184,6 +190,7 @@ Partial Class frmMain
         'pnlInputsTop
         '
         Me.pnlInputsTop.Controls.Add(Me.chkUmlaute)
+        Me.pnlInputsTop.Controls.Add(Me.chkCompareText)
         Me.pnlInputsTop.Controls.Add(Me.chkWords)
         Me.pnlInputsTop.Controls.Add(Me.Panel2)
         Me.pnlInputsTop.Controls.Add(Me.btnSort)
@@ -195,12 +202,22 @@ Partial Class frmMain
         'chkUmlaute
         '
         Me.chkUmlaute.AutoSize = True
-        Me.chkUmlaute.Location = New System.Drawing.Point(405, 7)
+        Me.chkUmlaute.Location = New System.Drawing.Point(537, 6)
         Me.chkUmlaute.Name = "chkUmlaute"
         Me.chkUmlaute.Size = New System.Drawing.Size(65, 17)
-        Me.chkUmlaute.TabIndex = 14
+        Me.chkUmlaute.TabIndex = 15
         Me.chkUmlaute.Text = "Umlaute"
         Me.chkUmlaute.UseVisualStyleBackColor = True
+        '
+        'chkCompareText
+        '
+        Me.chkCompareText.AutoSize = True
+        Me.chkCompareText.Location = New System.Drawing.Point(414, 7)
+        Me.chkCompareText.Name = "chkCompareText"
+        Me.chkCompareText.Size = New System.Drawing.Size(100, 17)
+        Me.chkCompareText.TabIndex = 14
+        Me.chkCompareText.Text = "Vergleiche Text"
+        Me.chkCompareText.UseVisualStyleBackColor = True
         '
         'chkWords
         '
@@ -243,132 +260,161 @@ Partial Class frmMain
         '
         'mnuMain
         '
-        Me.mnuMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DateiToolStripMenuItem, Me.BearbeitenToolStripMenuItem, Me.OptionenToolStripMenuItem, Me.InfosToolStripMenuItem})
+        Me.mnuMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile, Me.mnuEdit, Me.mnuOptions, Me.mnuInfo})
         Me.mnuMain.Location = New System.Drawing.Point(0, 0)
         Me.mnuMain.Name = "mnuMain"
         Me.mnuMain.Size = New System.Drawing.Size(799, 24)
         Me.mnuMain.TabIndex = 12
         Me.mnuMain.Text = "MenuStrip1"
         '
-        'DateiToolStripMenuItem
+        'mnuFile
         '
-        Me.DateiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NeuToolStripMenuItem, Me.ÖffnenToolStripMenuItem, Me.SpeichernToolStripMenuItem, Me.ToolStripSeparator1, Me.BeendenToolStripMenuItem})
-        Me.DateiToolStripMenuItem.Name = "DateiToolStripMenuItem"
-        Me.DateiToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.W), System.Windows.Forms.Keys)
-        Me.DateiToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
-        Me.DateiToolStripMenuItem.Text = "Datei"
+        Me.mnuFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuNew, Me.mnuOpen, Me.mnuSave, Me.mnuToolStripSeparator1, Me.mnuExit})
+        Me.mnuFile.Name = "mnuFile"
+        Me.mnuFile.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.W), System.Windows.Forms.Keys)
+        Me.mnuFile.Size = New System.Drawing.Size(46, 20)
+        Me.mnuFile.Text = "&Datei"
         '
-        'NeuToolStripMenuItem
+        'mnuNew
         '
-        Me.NeuToolStripMenuItem.Name = "NeuToolStripMenuItem"
-        Me.NeuToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.NeuToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
-        Me.NeuToolStripMenuItem.Text = "Neu"
+        Me.mnuNew.Name = "mnuNew"
+        Me.mnuNew.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
+        Me.mnuNew.Size = New System.Drawing.Size(166, 22)
+        Me.mnuNew.Text = "Neu"
         '
-        'ÖffnenToolStripMenuItem
+        'mnuOpen
         '
-        Me.ÖffnenToolStripMenuItem.Name = "ÖffnenToolStripMenuItem"
-        Me.ÖffnenToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.ÖffnenToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
-        Me.ÖffnenToolStripMenuItem.Text = "Öffnen"
+        Me.mnuOpen.Name = "mnuOpen"
+        Me.mnuOpen.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
+        Me.mnuOpen.Size = New System.Drawing.Size(166, 22)
+        Me.mnuOpen.Text = "Öffnen"
         '
-        'SpeichernToolStripMenuItem
+        'mnuSave
         '
-        Me.SpeichernToolStripMenuItem.Name = "SpeichernToolStripMenuItem"
-        Me.SpeichernToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SpeichernToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
-        Me.SpeichernToolStripMenuItem.Text = "Speichern"
+        Me.mnuSave.Name = "mnuSave"
+        Me.mnuSave.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.mnuSave.Size = New System.Drawing.Size(166, 22)
+        Me.mnuSave.Text = "Speichern"
         '
-        'ToolStripSeparator1
+        'mnuToolStripSeparator1
         '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(163, 6)
+        Me.mnuToolStripSeparator1.Name = "mnuToolStripSeparator1"
+        Me.mnuToolStripSeparator1.Size = New System.Drawing.Size(163, 6)
         '
-        'BeendenToolStripMenuItem
+        'mnuExit
         '
-        Me.BeendenToolStripMenuItem.Name = "BeendenToolStripMenuItem"
-        Me.BeendenToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.W), System.Windows.Forms.Keys)
-        Me.BeendenToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
-        Me.BeendenToolStripMenuItem.Text = "Beenden"
+        Me.mnuExit.Name = "mnuExit"
+        Me.mnuExit.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.W), System.Windows.Forms.Keys)
+        Me.mnuExit.Size = New System.Drawing.Size(166, 22)
+        Me.mnuExit.Text = "Beenden"
         '
-        'BearbeitenToolStripMenuItem
+        'mnuEdit
         '
-        Me.BearbeitenToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SortierenToolStripMenuItem})
-        Me.BearbeitenToolStripMenuItem.Name = "BearbeitenToolStripMenuItem"
-        Me.BearbeitenToolStripMenuItem.Size = New System.Drawing.Size(75, 20)
-        Me.BearbeitenToolStripMenuItem.Text = "Bearbeiten"
+        Me.mnuEdit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SortierenToolStripMenuItem, Me.mnuToolStripSeparator2, Me.mnuCut, Me.mnuCopy, Me.mnuInsert})
+        Me.mnuEdit.Name = "mnuEdit"
+        Me.mnuEdit.Size = New System.Drawing.Size(75, 20)
+        Me.mnuEdit.Text = "&Bearbeiten"
         '
         'SortierenToolStripMenuItem
         '
         Me.SortierenToolStripMenuItem.Name = "SortierenToolStripMenuItem"
-        Me.SortierenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SortierenToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.SortierenToolStripMenuItem.Text = "Sortieren"
         '
-        'OptionenToolStripMenuItem
+        'mnuToolStripSeparator2
         '
-        Me.OptionenToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UmlauteToolStripMenuItem, Me.WorteToolStripMenuItem, Me.AlgorithmusToolStripMenuItem})
-        Me.OptionenToolStripMenuItem.Name = "OptionenToolStripMenuItem"
-        Me.OptionenToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
-        Me.OptionenToolStripMenuItem.Text = "Optionen"
+        Me.mnuToolStripSeparator2.Name = "mnuToolStripSeparator2"
+        Me.mnuToolStripSeparator2.Size = New System.Drawing.Size(145, 6)
         '
-        'UmlauteToolStripMenuItem
+        'mnuCut
         '
-        Me.UmlauteToolStripMenuItem.Name = "UmlauteToolStripMenuItem"
-        Me.UmlauteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.UmlauteToolStripMenuItem.Text = "Umlaute"
+        Me.mnuCut.Name = "mnuCut"
+        Me.mnuCut.Size = New System.Drawing.Size(148, 22)
+        Me.mnuCut.Text = "&Ausschneiden"
         '
-        'WorteToolStripMenuItem
+        'mnuCopy
         '
-        Me.WorteToolStripMenuItem.Name = "WorteToolStripMenuItem"
-        Me.WorteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.WorteToolStripMenuItem.Text = "Worte"
+        Me.mnuCopy.Name = "mnuCopy"
+        Me.mnuCopy.Size = New System.Drawing.Size(148, 22)
+        Me.mnuCopy.Text = "&Kopieren"
         '
-        'AlgorithmusToolStripMenuItem
+        'mnuInsert
         '
-        Me.AlgorithmusToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BubblesortToolStripMenuItem, Me.InsertionsortToolStripMenuItem, Me.QuicksortToolStripMenuItem, Me.RipplesortToolStripMenuItem, Me.MergesortToolStripMenuItem})
-        Me.AlgorithmusToolStripMenuItem.Name = "AlgorithmusToolStripMenuItem"
-        Me.AlgorithmusToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.AlgorithmusToolStripMenuItem.Text = "Algorithmus"
+        Me.mnuInsert.Name = "mnuInsert"
+        Me.mnuInsert.Size = New System.Drawing.Size(148, 22)
+        Me.mnuInsert.Text = "&Einfügen"
         '
-        'BubblesortToolStripMenuItem
+        'mnuOptions
         '
-        Me.BubblesortToolStripMenuItem.Name = "BubblesortToolStripMenuItem"
-        Me.BubblesortToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
-        Me.BubblesortToolStripMenuItem.Text = "Bubblesort"
+        Me.mnuOptions.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuCompareText, Me.mnuWorte, Me.mnuUmlaute, Me.mnuAlgorithmus})
+        Me.mnuOptions.Name = "mnuOptions"
+        Me.mnuOptions.Size = New System.Drawing.Size(69, 20)
+        Me.mnuOptions.Text = "&Optionen"
         '
-        'InsertionsortToolStripMenuItem
+        'mnuCompareText
         '
-        Me.InsertionsortToolStripMenuItem.Name = "InsertionsortToolStripMenuItem"
-        Me.InsertionsortToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
-        Me.InsertionsortToolStripMenuItem.Text = "Insertionsort"
+        Me.mnuCompareText.Name = "mnuCompareText"
+        Me.mnuCompareText.Size = New System.Drawing.Size(154, 22)
+        Me.mnuCompareText.Text = "&Vergleiche Text"
         '
-        'QuicksortToolStripMenuItem
+        'mnuWorte
         '
-        Me.QuicksortToolStripMenuItem.Name = "QuicksortToolStripMenuItem"
-        Me.QuicksortToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
-        Me.QuicksortToolStripMenuItem.Text = "Quicksort"
+        Me.mnuWorte.Name = "mnuWorte"
+        Me.mnuWorte.Size = New System.Drawing.Size(154, 22)
+        Me.mnuWorte.Text = "&Worte"
         '
-        'RipplesortToolStripMenuItem
+        'mnuAlgorithmus
         '
-        Me.RipplesortToolStripMenuItem.Name = "RipplesortToolStripMenuItem"
-        Me.RipplesortToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
-        Me.RipplesortToolStripMenuItem.Text = "Ripplesort"
+        Me.mnuAlgorithmus.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBubblesort, Me.mnuInsertionsort, Me.mnuQuicksort, Me.mnuRipplesort, Me.mnuMergesort})
+        Me.mnuAlgorithmus.Name = "mnuAlgorithmus"
+        Me.mnuAlgorithmus.Size = New System.Drawing.Size(154, 22)
+        Me.mnuAlgorithmus.Text = "&Algorithmus"
         '
-        'MergesortToolStripMenuItem
+        'mnuBubblesort
         '
-        Me.MergesortToolStripMenuItem.Name = "MergesortToolStripMenuItem"
-        Me.MergesortToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
-        Me.MergesortToolStripMenuItem.Text = "Mergesort"
+        Me.mnuBubblesort.Name = "mnuBubblesort"
+        Me.mnuBubblesort.Size = New System.Drawing.Size(140, 22)
+        Me.mnuBubblesort.Text = "&Bubblesort"
         '
-        'InfosToolStripMenuItem
+        'mnuInsertionsort
         '
-        Me.InfosToolStripMenuItem.Name = "InfosToolStripMenuItem"
-        Me.InfosToolStripMenuItem.Size = New System.Drawing.Size(45, 20)
-        Me.InfosToolStripMenuItem.Text = "Infos"
+        Me.mnuInsertionsort.Name = "mnuInsertionsort"
+        Me.mnuInsertionsort.Size = New System.Drawing.Size(140, 22)
+        Me.mnuInsertionsort.Text = "&Insertionsort"
+        '
+        'mnuQuicksort
+        '
+        Me.mnuQuicksort.Name = "mnuQuicksort"
+        Me.mnuQuicksort.Size = New System.Drawing.Size(140, 22)
+        Me.mnuQuicksort.Text = "&Quicksort"
+        '
+        'mnuRipplesort
+        '
+        Me.mnuRipplesort.Name = "mnuRipplesort"
+        Me.mnuRipplesort.Size = New System.Drawing.Size(140, 22)
+        Me.mnuRipplesort.Text = "&Ripplesort"
+        '
+        'mnuMergesort
+        '
+        Me.mnuMergesort.Name = "mnuMergesort"
+        Me.mnuMergesort.Size = New System.Drawing.Size(140, 22)
+        Me.mnuMergesort.Text = "&Mergesort"
+        '
+        'mnuInfo
+        '
+        Me.mnuInfo.Name = "mnuInfo"
+        Me.mnuInfo.Size = New System.Drawing.Size(45, 20)
+        Me.mnuInfo.Text = "&Infos"
         '
         'ofdLoadText
         '
         Me.ofdLoadText.FileName = "Select File"
+        '
+        'mnuUmlaute
+        '
+        Me.mnuUmlaute.Name = "mnuUmlaute"
+        Me.mnuUmlaute.Size = New System.Drawing.Size(154, 22)
+        Me.mnuUmlaute.Text = "&Umlaute"
         '
         'frmMain
         '
@@ -418,26 +464,32 @@ Partial Class frmMain
     Friend WithEvents lblAlgo As System.Windows.Forms.Label
     Friend WithEvents chkWords As System.Windows.Forms.CheckBox
     Friend WithEvents mnuMain As System.Windows.Forms.MenuStrip
-    Friend WithEvents DateiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents NeuToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ÖffnenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SpeichernToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents BeendenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents BearbeitenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuFile As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuNew As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuOpen As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuSave As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents mnuExit As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuEdit As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SortierenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents OptionenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents UmlauteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents WorteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents InfosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents chkUmlaute As System.Windows.Forms.CheckBox
-    Friend WithEvents AlgorithmusToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents BubblesortToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents QuicksortToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents InsertionsortToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents MergesortToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents RipplesortToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuOptions As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuCompareText As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuWorte As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuInfo As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents chkCompareText As System.Windows.Forms.CheckBox
+    Friend WithEvents mnuAlgorithmus As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuBubblesort As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuQuicksort As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuInsertionsort As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuMergesort As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuRipplesort As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ofdLoadText As System.Windows.Forms.OpenFileDialog
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
+    Friend WithEvents chkUmlaute As System.Windows.Forms.CheckBox
+    Friend WithEvents mnuToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents mnuCut As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuCopy As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuInsert As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuUmlaute As System.Windows.Forms.ToolStripMenuItem
 
 End Class
