@@ -11,10 +11,6 @@ Public Class frmMain
 
     Private udtList As StringSorting = New StringSorting("")
 
-    'Public Function alive() As Boolean
-    '    Return mblnalive
-    'End Function
-
     Private Sub btnQuit_Click(sender As Object, e As EventArgs) Handles btnQuit.Click
         udtList.kill()
         Me.Close()
@@ -128,7 +124,7 @@ Public Class frmMain
         setAlgorithm(cmbAlgorithm.SelectedItem)
     End Sub
 
-    Private Sub Menu_Algorithm_Click(sender As Object, e As EventArgs) Handles mnuBubblesort.Click, mnuAlgorithmus.Click, mnuInsertionsort.Click, mnuQuicksort.Click, mnuRipplesort.Click, mnuMergesort.Click
+    Private Sub Menu_Algorithm_Click(sender As Object, e As EventArgs) Handles mnuBubblesort.Click, mnuAlgorithmus.Click, mnuInsertionsort.Click, mnuQuicksort.Click, mnuRipplesort.Click
         Dim item As ToolStripMenuItem = sender
         setAlgorithm(item.Text.Substring(1))
     End Sub
@@ -159,19 +155,22 @@ Public Class frmMain
 
     Private Sub mnuCopy_Click(sender As Object, e As EventArgs) Handles mnuCopy.Click, tlbCopy.Click
         If TypeOf Me.ActiveControl Is TextBox Then
-            Clipboard.SetDataObject(CType(Me.ActiveControl, TextBox).SelectedText)
+            'Clipboard.SetDataObject(CType(Me.ActiveControl, TextBox).SelectedText)
+            CType(Me.ActiveControl, TextBox).Copy()
         End If
     End Sub
     Private Sub mnuCut_Click(sender As Object, e As EventArgs) Handles mnuCut.Click, tlbCut.Click
         If TypeOf Me.ActiveControl Is TextBox Then
-            Clipboard.SetDataObject(CType(Me.ActiveControl, TextBox).SelectedText)
-            CType(Me.ActiveControl, TextBox).Clear()
+            'Clipboard.SetDataObject(CType(Me.ActiveControl, TextBox).SelectedText)
+            'CType(Me.ActiveControl, TextBox).Clear()
+            CType(Me.ActiveControl, TextBox).Cut()
         End If
     End Sub
 
     Private Sub mnuPaste_Click(sender As Object, e As EventArgs) Handles mnuPaste.Click, tlbPaste.Click
         If TypeOf Me.ActiveControl Is TextBox And Not CType(Me.ActiveControl, TextBox).ReadOnly Then
-            CType(Me.ActiveControl, TextBox).SelectedText = Clipboard.GetDataObject.GetData(DataFormats.Text)
+            CType(Me.ActiveControl, TextBox).Paste()
+            'CType(Me.ActiveControl, TextBox).SelectedText = Clipboard.GetDataObject.GetData(DataFormats.Text)
         End If
 
     End Sub
@@ -189,13 +188,10 @@ Public Class frmMain
         If dlgSaveText.ShowDialog() = DialogResult.OK Then
             myStream = dlgSaveText.OpenFile()
             If (myStream IsNot Nothing) Then
-                ' Code to write the stream goes here.
                 Using writer As IO.StreamWriter = New IO.StreamWriter(myStream, System.Text.Encoding.Unicode)
-                    writer.WriteLine("Unsortiert:")
-                    writer.WriteLine(txtUnsorted.Text)
-                    writer.WriteLine(vbCrLf & vbCrLf)
-                    writer.WriteLine("Sortiert:")
-                    writer.WriteLine(txtSorted.Text)
+                    If TypeOf Me.ActiveControl Is TextBox Then
+                        writer.WriteLine(CType(Me.ActiveControl, TextBox).Text)
+                    End If
                 End Using
                 myStream.Close()
             End If

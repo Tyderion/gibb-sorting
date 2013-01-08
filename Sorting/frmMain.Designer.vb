@@ -64,7 +64,6 @@ Partial Class frmMain
         Me.mnuInsertionsort = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuQuicksort = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuRipplesort = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuMergesort = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuInfo = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuAbout = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -173,7 +172,7 @@ Partial Class frmMain
         'cmbAlgorithm
         '
         Me.cmbAlgorithm.FormattingEnabled = True
-        Me.cmbAlgorithm.Items.AddRange(New Object() {"Bubblesort", "Insertionsort", "Quicksort", "Ripplesort", "Mergesort"})
+        Me.cmbAlgorithm.Items.AddRange(New Object() {"Bubblesort", "Insertionsort", "Quicksort", "Ripplesort"})
         Me.cmbAlgorithm.Location = New System.Drawing.Point(62, 3)
         Me.cmbAlgorithm.Name = "cmbAlgorithm"
         Me.cmbAlgorithm.Size = New System.Drawing.Size(140, 21)
@@ -394,7 +393,7 @@ Partial Class frmMain
         '
         'mnuAlgorithmus
         '
-        Me.mnuAlgorithmus.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBubblesort, Me.mnuInsertionsort, Me.mnuQuicksort, Me.mnuRipplesort, Me.mnuMergesort})
+        Me.mnuAlgorithmus.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBubblesort, Me.mnuInsertionsort, Me.mnuQuicksort, Me.mnuRipplesort})
         Me.mnuAlgorithmus.Name = "mnuAlgorithmus"
         Me.mnuAlgorithmus.Size = New System.Drawing.Size(154, 22)
         Me.mnuAlgorithmus.Text = "&Algorithmus"
@@ -402,32 +401,26 @@ Partial Class frmMain
         'mnuBubblesort
         '
         Me.mnuBubblesort.Name = "mnuBubblesort"
-        Me.mnuBubblesort.Size = New System.Drawing.Size(140, 22)
+        Me.mnuBubblesort.Size = New System.Drawing.Size(152, 22)
         Me.mnuBubblesort.Text = "&Bubblesort"
         '
         'mnuInsertionsort
         '
         Me.mnuInsertionsort.Name = "mnuInsertionsort"
-        Me.mnuInsertionsort.Size = New System.Drawing.Size(140, 22)
+        Me.mnuInsertionsort.Size = New System.Drawing.Size(152, 22)
         Me.mnuInsertionsort.Text = "&Insertionsort"
         '
         'mnuQuicksort
         '
         Me.mnuQuicksort.Name = "mnuQuicksort"
-        Me.mnuQuicksort.Size = New System.Drawing.Size(140, 22)
+        Me.mnuQuicksort.Size = New System.Drawing.Size(152, 22)
         Me.mnuQuicksort.Text = "&Quicksort"
         '
         'mnuRipplesort
         '
         Me.mnuRipplesort.Name = "mnuRipplesort"
-        Me.mnuRipplesort.Size = New System.Drawing.Size(140, 22)
+        Me.mnuRipplesort.Size = New System.Drawing.Size(152, 22)
         Me.mnuRipplesort.Text = "&Ripplesort"
-        '
-        'mnuMergesort
-        '
-        Me.mnuMergesort.Name = "mnuMergesort"
-        Me.mnuMergesort.Size = New System.Drawing.Size(140, 22)
-        Me.mnuMergesort.Text = "&Mergesort"
         '
         'mnuInfo
         '
@@ -636,7 +629,6 @@ Partial Class frmMain
     Friend WithEvents mnuBubblesort As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnuQuicksort As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnuInsertionsort As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents mnuMergesort As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mnuRipplesort As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents dlgLoadText As System.Windows.Forms.OpenFileDialog
     Friend WithEvents dlgSaveText As System.Windows.Forms.SaveFileDialog
